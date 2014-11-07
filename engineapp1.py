@@ -17,9 +17,8 @@
 import webapp2
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        self.response.headers['Content-Type'] = 'text/plain'
-        self.redirect ('http://concordia.ca')  
-        #self.response.write('Hello world After git!')
+        self.response.headers['Content-Type'] = 'text/json'
+        self.response.write('{"foo": "bar234"}')
         
 class Add(webapp2.RequestHandler):
     def get(self, x, y):
