@@ -21,7 +21,11 @@ class MainPage(webapp2.RequestHandler):
         self.redirect ('http://concordia.ca')  
         #self.response.write('Hello world After git!')
         
-
+class Add(webapp2.RequestHandler):
+    def get(self, x, y):
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.write(int(x)+int(y))
 application = webapp2.WSGIApplication([
-    ('/', MainPage)
+    ('/', MainPage),
+    (r'/(\d+),(\d+)', Add)
 ], debug=True)
